@@ -54,7 +54,7 @@ body{ margin:0; font-family:var(--font); color:var(--gray-900); background:var(-
   width:100%;
   height:100%;
   object-fit:contain;           /* ВАЖЛИВО: без обрізання */
-  object-position:center;
+  object-position:contain;
   display:block;                /* прибирає “зазор” як у inline-зображень */
 }
 .brand-text{ display:flex; flex-direction:column; line-height:1.15; }
