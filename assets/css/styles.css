@@ -1,7 +1,18 @@
 .brand-logo {
-  width: 56px;
-  height: 56px;
-  object-fit: contain;
-  border-radius: 8px;
-  flex-shrink: 0;
+    width: 100px;
+    height: auto;
+    margin: 0 auto;
+}
+
+/* Other original CSS rules */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+}
+h1 {
+    color: #333;
+}
+p {
+    line-height: 1.5;
 }
