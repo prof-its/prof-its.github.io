@@ -11,9 +11,13 @@
         </div>
       </a>
 
-      <button class="menu-btn" type="button" data-menu-btn aria-expanded="false" aria-label="Відкрити меню">
-        Меню
-      </button>
+      <div style="display:flex; align-items:center; gap:10px;">
+        <div aria-label="Вибір мови" style="display:flex; gap:6px; padding:4px; border:1px solid var(--gray-200); border-radius:12px; background:#fff;">
+          <a id="lang-ua" href="index.html" style="padding:6px 10px; border-radius:10px; text-decoration:none; font-weight:800; color:var(--kpi-blue-900);">UA</a>
+          <a id="lang-en" href="index-en.html" style="padding:6px 10px; border-radius:10px; text-decoration:none; font-weight:800; color:var(--kpi-blue-900);">EN</a>
+        </div>
+        <button class="menu-btn" type="button" data-menu-btn aria-expanded="false" aria-label="Відкрити меню">Меню</button>
+      </div>
 
       <nav class="nav" aria-label="Основна навігація">
         <a href="index.html">Головна</a>

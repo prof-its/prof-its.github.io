@@ -26,8 +26,37 @@ function bindMenuButton() {
   });
 }
 
+function bindLangToggle(){
+  const ua = document.getElementById('lang-ua');
+  const en = document.getElementById('lang-en');
+  if(!ua || !en) return;
+
+  const file = (location.pathname.split('/').pop() || 'index.html');
+  const isEn = file.toLowerCase().endsWith('-en.html');
+
+  const toEn = (name) => {
+    if(name.toLowerCase().endsWith('-en.html')) return name;
+    const m = name.match(/^(.*)\.html$/i);
+    return m ? `${m[1]}-en.html` : name + '-en';
+  };
+
+  const toUa = (name) => name.replace(/-en\.html$/i, '.html');
+
+  ua.setAttribute('href', isEn ? toUa(file) : file);
+  en.setAttribute('href', isEn ? file : toEn(file));
+
+  if(isEn){
+    en.setAttribute('aria-current','true');
+    ua.removeAttribute('aria-current');
+  } else {
+    ua.setAttribute('aria-current','true');
+    en.removeAttribute('aria-current');
+  }
+}
+
 document.addEventListener('DOMContentLoaded', async () => {
   await includePartials();
   setActiveNav();
   bindMenuButton();
+  bindLangToggle();
 });
