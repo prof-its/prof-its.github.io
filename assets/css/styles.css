@@ -34,7 +34,29 @@ body{ margin:0; font-family:var(--font); color:var(--gray-900); background:var(-
 .site-header{ position:sticky; top:0; z-index:50; background:rgba(255,255,255,.92); backdrop-filter:saturate(160%) blur(10px); border-bottom:1px solid var(--gray-200); }
 .header-bar{ display:flex; align-items:center; justify-content:space-between; gap:16px; padding:12px 0; }
 .brand{ display:flex; align-items:center; gap:12px; text-decoration:none; min-width:240px; }
-.brand-mark{ width:42px; height:42px; border-radius:12px; background: radial-gradient(circle at 30% 30%, rgba(0,138,207,.35), transparent 55%), linear-gradient(145deg, var(--kpi-blue-900), var(--kpi-blue-600)); box-shadow: 0 10px 20px rgba(28,57,110,.18); }
+
+.brand-mark{
+  width:42px;
+  height:42px;
+  border-radius:12px;
+  overflow:hidden;              /* щоб PNG не виходив за округлення */
+  display:grid;
+  place-items:center;
+
+  /* Підкладка під прозорий PNG — залишайте, якщо виглядає добре */
+  background: radial-gradient(circle at 30% 30%, rgba(0,138,207,.35), transparent 55%),
+              linear-gradient(145deg, var(--kpi-blue-900), var(--kpi-blue-600));
+  box-shadow: 0 10px 20px rgba(28,57,110,.18);
+}
+
+/* Власне припасування PNG до рамки */
+.brand-mark img{
+  width:100%;
+  height:100%;
+  object-fit:contain;           /* ВАЖЛИВО: без обрізання */
+  object-position:center;
+  display:block;                /* прибирає “зазор” як у inline-зображень */
+}
 .brand-text{ display:flex; flex-direction:column; line-height:1.15; }
 .brand-text strong{ font-size:0.98rem; letter-spacing:.2px; color: var(--gray-900); }
 .brand-text span{ font-size:0.82rem; color:var(--gray-600); }
